@@ -41,7 +41,7 @@ function main(){
 
     const ticket1 = airport.buyTicket("ua-12", "VIP", regularPassenger);
     const ticket2 = airport.buyTicket("ua-11", "REGULAR", studentPassenger);
-    console.log(ticket1, ticket2);
+
 }
 
 
