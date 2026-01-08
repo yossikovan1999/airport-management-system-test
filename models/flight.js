@@ -3,6 +3,9 @@ import VipTicket from "./ticket/vipTicket.js";
 import {v4} from 'uuid';
 
 class Flight {
+   
+  #ticketList
+
   constructor(flightName, airline, flightNumber, maxNumberOfPassegers,
     regularTicketPrice, vipTicketPrice) {
     this.flightName = flightName;
@@ -11,7 +14,7 @@ class Flight {
     this.maxNumberOfPassegers = maxNumberOfPassegers;
     this.regularTicketPrice = regularTicketPrice;
     this.vipTicketPrice = vipTicketPrice;
-    this.ticketList = this.initializeTickets();
+    this.#ticketList = this.initializeTickets();
   }
 
   initializeTickets() {
@@ -62,10 +65,14 @@ class Flight {
     
     const ticketClass = ticketType === "REGULAR" ? RegularTicket : VipTicket;
 
-    ticket = this.ticketList.find((ticket)=> (ticket instanceof ticketClass) && !ticket.ownerName)
+    ticket = this.#ticketList.find((ticket)=> (ticket instanceof ticketClass) && !ticket.ownerName)
   
     return ticket;
   }  
+
+  getTicketList(){
+    return [...this.#ticketList];
+  }
 }
 
 export default Flight;

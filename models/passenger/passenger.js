@@ -1,10 +1,11 @@
 class Passenger{
     
     #amountOfMoney
+    #idNumber
 
     constructor(name, idNumber, amountOfMoney){
         this.name = name;
-        this.idNumber = idNumber;
+        this.#idNumber = idNumber;
         this.#amountOfMoney = amountOfMoney;
     }
     
@@ -27,6 +28,10 @@ class Passenger{
 
     getMoneyLeft(){
         return this.#amountOfMoney;
+    }
+
+    getIdNumber(){
+        return this.#idNumber;
     }
 }
 
